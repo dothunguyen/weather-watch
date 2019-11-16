@@ -12,7 +12,7 @@ describe('Weather', () => {
       .then(r => {
         var body = r.body;
         expect(body).to.be.an.an('object')
-        expect(body).has.property('wind_speed').equal(20);
-        expect(body).has.property('temperature_degrees').equal(29);
+        expect(body).has.property('wind_speed');
+        expect(body).has.property('temperature_degrees');
       }));
 });
