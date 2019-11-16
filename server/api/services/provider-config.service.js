@@ -26,18 +26,20 @@ class ProviderConfig {
   }
 
   reportProviderDown() {
-    currentProvider.status = 'down';
-    let clone = {...currentProvider};
-    setTimeout(this.pingProvider, process.env.PING_INTERVAL, clone);
+    if (currentProvider) {
+      currentProvider.status = 'down';
+      let clone = {...currentProvider};
+      setTimeout(this.pingProvider, process.env.PING_INTERVAL, clone);
 
-    for (let i = 0; i < providers.length; i ++) {
-      const p = providers[i];
-      if (p.status === 'live') {
-        currentProvider = p;
-        return;
+      for (let i = 0; i < providers.length; i ++) {
+        const p = providers[i];
+        if (p.status === 'live') {
+          currentProvider = p;
+          return;
+        }
       }
+      currentProvider = null;
     }
-    currentProvider = null;
   }
 
   async pingProvider(p) {
