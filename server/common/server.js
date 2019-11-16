@@ -4,6 +4,7 @@ import * as bodyParser from 'body-parser';
 import * as http from 'http';
 import * as os from 'os';
 import cookieParser from 'cookie-parser';
+import cors from 'cors';
 
 import { OpenApiValidator } from 'express-openapi-validator';
 import errorHandler from '../api/middlewares/error.handler';
@@ -40,6 +41,8 @@ export default class ExpressServer {
   }
 
   router(routes) {
+    app.use(cors());
+    app.options('*', cors());
     routes(app);
     app.use(errorHandler);
 
