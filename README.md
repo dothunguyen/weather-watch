@@ -1,6 +1,8 @@
 # weather-watch
 
-API for weather watcher
+API for weather watcher, providers are http://api.weatherstack.com/current and http://api.openweathermap.org/data/2.5/weather (fail over).
+- Fail over mechanism is implemented for switching to an active provider when one gone down.
+- Mem-cache is used to give better performance and to provide stale data in case all providers are down. 
 
 ## Docker Build
 
@@ -24,7 +26,7 @@ curl http://localhost:3000/api/v1/melbourne
 ```
 
 
-## Get Started
+## NPM build
 
 Get started developing...
 
