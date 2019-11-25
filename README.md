@@ -44,7 +44,7 @@ npm run dev:debug
 Compiles the application and starts it in production production mode.
 
 ```shell
-npm run compile
+npm run build
 npm start
 ```
 
