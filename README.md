@@ -2,6 +2,28 @@
 
 API for weather watcher
 
+## Docker Build
+
+You can choose to build with npm or using docker if you have docker installed on your computer
+
+### build it
+```
+docker build -t weather-watch .
+```
+
+### run it
+
+```
+docker run -it -p 3000:3000 weather-watch
+```
+
+### test it
+
+```
+curl http://localhost:3000/api/v1/melbourne
+```
+
+
 ## Get Started
 
 Get started developing...
@@ -99,14 +121,6 @@ Fix all prettier linter errors
 
 ```
 npm run lint
-```
-
-## Deploy It
-
-Deploy to CloudFoundry
-
-```shell
-cf push weather-watch
 ```
 
 
